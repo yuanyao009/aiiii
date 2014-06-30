@@ -4,11 +4,11 @@ import java.util.Scanner;
  */
 public class Test {
     public static void main(String[] args) {
-    	System.out.println("please input the name of method : ");
+    	System.out.println(" please input the name of method : ");
     	Scanner input = new Scanner(System.in);
     	String method= input.next();//DepthFirst,IterativeDepthFirst,BreathFirst,Greed,AStar
     	Scanner input2= new Scanner(System.in);
-    	System.out.println("pleas input the game level: ");
+    	System.out.println(" pleas input the game level: ");
     	String level= input2.next();//easy,normal,hard
     	Grid grid=new Grid(level);
     	
