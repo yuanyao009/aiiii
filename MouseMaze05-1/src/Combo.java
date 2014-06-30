@@ -1,5 +1,5 @@
 
-public class ManhattanCombo extends heuristic {
+public class Combo extends heuristic {
 
     /**
      * is a combination between the blocking tiles Heuristic and the manhattan

@@ -38,42 +38,42 @@ public class IterativeDepthFirst extends Method {
                 if (success(temp.grid)) {
                         temp.ShowProcess();
                         temp.show();
-                    System.out.println("gameover");
+                    System.out.println("finish");
                     System.out.println("Queue Size :" + this.queue.size());
                 //System.out.println("Nodes Explored :" + this.numGrid);
                     System.out.println("Current Level " + current_level);
                     long total_time = System.currentTimeMillis() - start_time;
-                    System.out.println("Time Spent :" + total_time + " ms");
+                    System.out.println("Time Comsuming :" + total_time + " ms");
                     return;
                 }
                 temp = this.queue.remove();
                 current_level = temp.currentLevel();
             } catch (Exception e) {
-                System.out.println("Game Over --Solution NOT found");
+                System.out.println("Finish --Solution NOT found");
                 System.out.println("Queue Size :" + this.queue.size());
                 //System.out.println("Nodes Explored :" + this.numGrid);
 
                 long total_time = System.currentTimeMillis() - start_time;
-                System.out.println("Time Spent :" + total_time + " ms");
+                System.out.println("Time Comsuming :" + total_time + " ms");
             } catch (OutOfMemoryError e) {
-                System.out.println("Game Over --Solution NOT found");
+                System.out.println("Finish --Solution NOT found");
                 System.out.println("Queue Size :" + this.queue.size());
                 //System.out.println("Nodes Explored :" + this.numGrid);
 
                 long total_time = System.currentTimeMillis() - start_time;
-                System.out.println("Time Spent :" + total_time + " ms");
+                System.out.println("Time Comsuming :" + total_time + " ms");
                 return;
             }
         }
         System.out.println("EMPTY QUEUE");
         long total_time = System.currentTimeMillis() - start_time;
-        System.out.println("Time Spent :" + total_time + " ms");
+        System.out.println("Time Comsuming :" + total_time + " ms");
         //System.out.println("Nodes Explored :" + this.numGrid);
         if (success(temp.grid)) {
                 temp.ShowProcess();
-            System.out.println("Game Over --Solution FOUND");
+            System.out.println("Finish --Solution FOUND");
         } else {
-            System.out.println("Game Over --Solution NOT found");
+            System.out.println("Finish --Solution NOT found");
         }
     }
     @Override

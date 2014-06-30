@@ -28,11 +28,11 @@ public class AStar extends Method {
             System.out.println("size : " + queue.size());
             if (success(temp.grid)) {
                     temp.ShowProcess();
-                System.out.println("Game Over --Solution FOUND");
+                System.out.println("Finish --Solution FOUND");
                 System.out.println("Nodes Explored :" + this.gridPassed.size());
                 //System.out.println("Nodes Explored- :" + this.explored_nodes);
                 long total_time = System.currentTimeMillis() - start_time;
-                System.out.println("Time Spent :" + total_time + " ms");
+                System.out.println("Time Comsuming :" + total_time + " ms");
                 return;
             }
             temp = queue.remove();
@@ -40,14 +40,14 @@ public class AStar extends Method {
         }
         System.out.println("EMPTY QUEUE");
         long total_time = System.currentTimeMillis() - start_time;
-        System.out.println("Time Spent :" + total_time + " ms");
+        System.out.println("Time Comsuming :" + total_time + " ms");
         System.out.println("Nodes Explored :" + this.gridPassed.size());
         //System.out.println("Nodes Explored- :" + this.explored_nodes);
         if (success(temp.grid)) {
                 temp.ShowProcess();
-            System.out.println("Game Over --Solution FOUND");
+            System.out.println("Finish --Solution FOUND");
         } else {
-            System.out.println("Game Over --Solution NOT found");
+            System.out.println("Finish --Solution NOT found");
         }
     }
     public void addtoQueue(Grid board) {

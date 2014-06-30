@@ -12,30 +12,52 @@ public class Test {
     	String level= input2.next();//easy,normal,hard
     	Grid grid=new Grid(level);
     	
-        System.out.println("<:left; >:right; ^:up; v:down; A:head; B:tail");
-
-        System.out.println("move direction:\r"
-        		+ "<; r:>; ^:up; v:down; A:head; B:tail");
-
-        System.out.println("rules:left and right move together, up and down move together, head and tail move together");
-        System.out.println("once the head is move to position[2][5], it wins!");
+       
     	if (method.equalsIgnoreCase("DepthFirst")) {
     	  	grid.show();
+    	  	 System.out.println("<:left; >:right; ^:up; v:down; A:head; B:tail");
+
+    	        System.out.println("move direction:\r"
+    	        		+ "<; r:>; ^:up; v:down; A:head; B:tail");
+
+    	        System.out.println("rules:left and right move together, up and down move together, head and tail move together");
+    	        System.out.println("once the head is move to position[2][5], it wins!");
     		DepthFirst method2 = new DepthFirst(grid);
             method2.perform();
         }
     	else if (method.equalsIgnoreCase("IterativeDepthFirst")) {
     	  	grid.show();
+    	  	 System.out.println("<:left; >:right; ^:up; v:down; A:head; B:tail");
+
+    	        System.out.println("move direction:\r"
+    	        		+ "<; r:>; ^:up; v:down; A:head; B:tail");
+
+    	        System.out.println("rules:left and right move together, up and down move together, head and tail move together");
+    	        System.out.println("once the head is move to position[2][5], it wins!");
     		IterativeDepthFirst method2 = new IterativeDepthFirst(grid);
             method2.perform();
         }
         else if (method.equalsIgnoreCase("BreathFirst")) {
           	grid.show();
+          	 System.out.println("<:left; >:right; ^:up; v:down; A:head; B:tail");
+
+             System.out.println("move direction:\r"
+             		+ "<; r:>; ^:up; v:down; A:head; B:tail");
+
+             System.out.println("rules:left and right move together, up and down move together, head and tail move together");
+             System.out.println("once the head is move to position[2][5], it wins!");
         	BreathFirst method2 = new BreathFirst(grid);
             method2.perform();
         }
         else if (method.equalsIgnoreCase("Greedy")) {
           	grid.show();
+          	 System.out.println("<:left; >:right; ^:up; v:down; A:head; B:tail");
+
+             System.out.println("move direction:\r"
+             		+ "<; r:>; ^:up; v:down; A:head; B:tail");
+
+             System.out.println("rules:left and right move together, up and down move together, head and tail move together");
+             System.out.println("once the head is move to position[2][5], it wins!");
             int heuristic = Character.getNumericValue(method.charAt(1));
             //System.out.println("heuristic is "+heuristic);
             Greedy method2 = new Greedy(grid, heuristic);
@@ -43,6 +65,13 @@ public class Test {
         }
         else if (method.equalsIgnoreCase("AStar")) {  	
         	grid.show();
+        	 System.out.println("<:left; >:right; ^:up; v:down; A:head; B:tail");
+
+             System.out.println("move direction:\r"
+             		+ "<; r:>; ^:up; v:down; A:head; B:tail");
+
+             System.out.println("rules:left and right move together, up and down move together, head and tail move together");
+             System.out.println("once the head is move to position[2][5], it wins!");
             int heuristic = Character.getNumericValue(method.charAt(1));  
             AStar method2 = new AStar(grid, heuristic);
             method2.perform();
