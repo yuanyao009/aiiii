@@ -4,19 +4,15 @@ import java.util.Queue;
 
 public class BreathFirst extends Method {
     Queue<Grid> queue;
-    int shady = 0;
+    //int shady = 0;
     public BreathFirst(Grid start) {
-        queue = new LinkedList<>();
+        queue = new LinkedList<Grid>();
         queue.add(start);
     }
     @Override
     public void perform() {
         long start_time = System.currentTimeMillis();
         System.out.println("Starting the BFS");
-        if (queue.size() == 0) {
-            System.out.println("Cant start with no Board");
-            return;
-        }
         Grid temp = queue.remove();
         temp.lastGrid= null;
         possibleMoves(temp);
@@ -26,11 +22,11 @@ public class BreathFirst extends Method {
                     temp.ShowProcess();
                     System.out.println("foolowing is temp");
                     temp.show();
-                System.out.println("finish");
+                System.out.println("gameover");
                 System.out.println("Nodes Explored :" + this.gridPassed.size());
                 //System.out.println("Nodes Explored- :" + this.explored_nodes);
                 long total_time = System.currentTimeMillis() - start_time;
-                System.out.println("Time Comsuming :" + total_time + " ms");
+                System.out.println("Time Spent :" + total_time + " ms");
                 return;
             }
             temp = queue.remove();
@@ -38,19 +34,20 @@ public class BreathFirst extends Method {
         }
         System.out.println("EMPTY QUEUE");
         long total_time = System.currentTimeMillis() - start_time;
-        System.out.println("Time Comsuming :" + total_time + " ms");
+        System.out.println("Time Spent :" + total_time + " ms");
         System.out.println("Nodes Explored :" + this.gridPassed.size());
         //System.out.println("Nodes Explored- :" + this.explored_nodes);
         if (success(temp.grid)) {
                 temp.ShowProcess();
-            System.out.println("Finish --Solution FOUND");
+            System.out.println("Game Over --Solution FOUND");
         } else {
-            System.out.println("Finish --Solution NOT found");
+            System.out.println("Game Over --Solution NOT found");
         }
     }
     @Override
     public void addtoQueue(Grid board) {
         //this.explored_nodes++;
         this.queue.add(board);
+        board.show();
     }
 }

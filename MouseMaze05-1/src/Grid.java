@@ -6,10 +6,11 @@ import java.util.*;
 public class Grid {
     public char[][] grid;
     public Grid lastGrid;
-    public int cost; //cost to be used in the hurstic fucntion
-    public int heuristic;
+    //public int cost; //cost to be used in the hurstic fucntion
+    public double heuristic;
     public long time = System.currentTimeMillis();
     public int dimension=6;
+    public int[] goal=new int[2];
     
     public Grid(){
     	grid=new char[dimension][dimension];
@@ -17,30 +18,24 @@ public class Grid {
     public Grid(String level) {
     	switch (level) {
         case "easy":
-//        	grid = new char[][]{
-//        			{3, 6, 7, 6, 7, 3},
-//                    {4, 0, 3, 0, 3, 5},
-//                    {1, 2, 4, 3, 5, 4},
-//                    {3, 3, 3, 4, 4, 3},
-//                    {5, 5, 5, 3, 3, 5},
-//                    {4, 4, 4, 4, 4, 4}};
         	grid = new char[][]{
-        			 {'^','<', '>','<','>', '^'},
-                    {'v', ' ','^',' ','^', '|'},
-                    {'B', 'A', 'v','^','|','v'},
-                    {'^', '^','^', 'v','v', '^'},
-                    {'|','|', '|', '^','^', '|'},
-                    {'v', 'v', 'v','v','v','v'}
-                    	};
+        			{3, 6, 7, 6, 7, 3},
+                    {4, 0, 3, 0, 3, 5},
+                    {1, 2, 4, 3, 5, 4},
+                    {3, 3, 3, 4, 4, 3},
+                    {5, 5, 5, 3, 3, 5},
+                    {4, 4, 4, 4, 4, 4}};
     	break;
         case "normal":  
             grid = new char[][]{
             		{' ', ' ', '<', '>', '<', '>'},
                     {' ', '<', '>', '<', '>', '^'},
-                    {'B', 'A', ' ', ' ', '^', '|'},
+                    {' ', 'A', ' ', ' ', '^', '|'},
                     {'<', '>', '<', '>', 'v', 'v'},
                     {'^', ' ', ' ', '^', '<', '>'},
                     {'v', ' ', ' ', 'v', '<', '>'}};
+            goal[0]=2;
+            goal[1]=5;
         break;
         case "hard":  
             grid = new char[][]{
@@ -49,17 +44,17 @@ public class Grid {
                     {4, 0, 1, 2, 4, 4},
                     {6, 7, 3, 0, 0, 0},
                     {0, 3, 4, 0, 6, 7},
-                    {0, 4, 6, 7, 6, 7}}; 
-            grid = new char[][]{
-            		{'<','-', '>','^','^','^'},
-                    {'^','<','>','v', '|','|'},
-                    {'v', ' ','B','A','v','v'},
-                    {'<', '>','^', ' ', ' ', ' '},
-                    {' ', '^','v', ' ','<', '>'},
-                    {' ', 'v', '<', '>','<', '>'}}; 
-            
+                    {0, 4, 6, 7, 6, 7}};      
     }
 }
+    public void setGoal(int x, int y){
+    	goal[0]=x;
+    	goal[1]=y;
+    }
+    public int[] getGoal(){
+    	return goal;
+    }
+    
     public void show() {
         System.out.println();
         for (int i = 0; i < grid.length; i++) {
@@ -105,6 +100,29 @@ public class Grid {
      */
     char[][] move(char[][] grid, int i, int j, char move) {
         switch (move) {
+        	case 'l':
+        		System.out.println("l"+i+j);
+        		grid[i][j] ='A';
+                grid[i][j+1] =' ';
+                
+                break;
+        	case 'r':
+        		System.out.println("r"+i+j);
+        		grid[i][j] ='A';
+                grid[i][j-1] =' ';
+                
+                break; 
+        	case 'u':
+        		System.out.println("u"+i+j);
+        		grid[i][j] ='A';
+                grid[i+1][j] =' ';
+                
+                break;
+        	case 'd':
+        		System.out.println("d"+i+j);
+        		grid[i][j] ='A';
+                grid[i-1][j] =' ';                
+                break;	
             case '<':
                 grid[i][j - 1] = grid[i][j];
                 grid[i][j] = grid[i][j + 1];
@@ -145,6 +163,8 @@ public class Grid {
                     grid[i - 1][j] = ' ';
                 }
                 break;
+            default:
+            	break;
         }
         return grid;
     }
