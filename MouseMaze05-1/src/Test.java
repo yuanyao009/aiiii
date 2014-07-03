@@ -11,7 +11,7 @@ public class Test {
     	//System.out.println("pleas input the game level: ");
     	//String level= input2.next();//easy,normal,hard
     	String level="normal";
-    	String method="BreathFirst";
+    	String method="AStar";//DepthFirst,IterativeDepthFirst,BreathFirst,Greed,AStar
     	
     	Grid grid=new Grid(level);
     	
