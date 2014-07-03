@@ -26,12 +26,12 @@ public class DepthFirst extends Method {
             if (success(temp.grid)) {
                     temp.ShowProcess();;
                     temp.show();;
-                System.out.println("finish");
+                System.out.println("gameover");
                 System.out.println("Nodes Explored :" + this.gridPassed.size());
                 //System.out.println("Nodes Explored- :" + this.explored_nodes);
 
                 long total_time = System.currentTimeMillis() - start_time;
-                System.out.println("Time Comsuming :" + total_time + " ms");
+                System.out.println("Time Spent :" + total_time + " ms");
                 return;
             }
             temp = stack.pop();
@@ -40,16 +40,16 @@ public class DepthFirst extends Method {
         //stack is empty
         System.out.println("EMPTY stack");
         long total_time = System.currentTimeMillis() - start_time;
-        System.out.println("Time Comsuming :" + total_time + " ms");
+        System.out.println("Time Spent :" + total_time + " ms");
 //        temp.visualize();
         System.out.println("Nodes Explored :" + this.gridPassed.size());
         //System.out.println("Nodes Explored- :" + this.explored_nodes);
 
         if (success(temp.grid)) {
                 temp.ShowProcess();;
-            System.out.println("Finish --Solution FOUND");
+            System.out.println("Game Over --Solution FOUND");
         } else {
-            System.out.println("Finish --Solution NOT found");
+            System.out.println("Game Over --Solution NOT found");
         }
     }
     @Override
