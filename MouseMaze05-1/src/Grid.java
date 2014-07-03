@@ -16,8 +16,8 @@ public class Grid {
     	grid=new char[dimension][dimension];
     }
     public Grid(String level) {
-    	switch (level) {
-        case "easy":
+    	//switch (level) {
+        /*case "easy":
         	grid = new char[][]{
         			{3, 6, 7, 6, 7, 3},
                     {4, 0, 3, 0, 3, 5},
@@ -26,7 +26,8 @@ public class Grid {
                     {5, 5, 5, 3, 3, 5},
                     {4, 4, 4, 4, 4, 4}};
     	break;
-        case "normal":  
+    	*/
+        //case "normal":  
             grid = new char[][]{
             		{' ', ' ', '<', '>', '<', '>'},
                     {' ', '<', '>', '<', '>', '^'},
@@ -36,7 +37,8 @@ public class Grid {
                     {'v', ' ', ' ', 'v', '<', '>'}};
             goal[0]=2;
             goal[1]=5;
-        break;
+        //break;
+        /*
         case "hard":  
             grid = new char[][]{
             		{6, 8, 7, 3, 3, 3},
@@ -46,6 +48,7 @@ public class Grid {
                     {0, 3, 4, 0, 6, 7},
                     {0, 4, 6, 7, 6, 7}};      
     }
+    */
 }
     public void setGoal(int x, int y){
     	goal[0]=x;
