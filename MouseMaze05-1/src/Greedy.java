@@ -40,12 +40,11 @@ public class Greedy extends Method {
                     temp.show();
                 System.out.println("Game Over --Solution FOUND");
 
-                System.out.println("Nodes Explored :" + this.gridPassed.size());
-                //System.out.println("Nodes Explored- :" + this.numGrid);
-                System.out.println("The start point:"+Grid.start_x+" "+Grid.start_y);
-                System.out.println("The goal point:"+Grid.goal_x+" "+Grid.goal_y);
+                //System.out.println("Nodes Explored :" + this.gridPassed.size());
+                //System.out.println("The start point:"+Grid.start_x+" "+Grid.start_y);
+                //System.out.println("The goal point:"+Grid.goal_x+" "+Grid.goal_y);
                 long total_time = System.currentTimeMillis() - start_time;
-                System.out.println("Time Spent :" + total_time + " ms");
+                //System.out.println("Time Spent :" + total_time + " ms");
                 res.success = true;
                 res.nodes = this.gridPassed.size();
                 res.time = total_time;
@@ -56,8 +55,8 @@ public class Greedy extends Method {
         }
         System.out.println("EMPTY QUEUE");
         long total_time = System.currentTimeMillis() - start_time;
-        System.out.println("Time Spent :" + total_time + " ms");
-        System.out.println("Nodes Explored :" + this.gridPassed.size());
+        //System.out.println("Time Spent :" + total_time + " ms");
+        //System.out.println("Nodes Explored :" + this.gridPassed.size());
         //System.out.println("Nodes Explored- :" + this.explored_nodes);
 
         if (success(temp.grid)) {

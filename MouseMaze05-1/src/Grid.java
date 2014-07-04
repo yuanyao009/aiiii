@@ -144,7 +144,7 @@ public class Grid {
     }
     public int ShowProcess() {
         Grid currentGrid = this;
-        System.out.println("********Final result*********");
+        //System.out.println("********Final result*********");
         Stack<Grid> stack = new Stack<Grid>();
         while (currentGrid.lastGrid != null) {
             stack.add(currentGrid.lastGrid);
@@ -156,7 +156,7 @@ public class Grid {
             stack.pop().show();
         }
         **/
-        System.out.println("------ Done in  " + steps + " steps");
+        //System.out.println("------ Done in  " + steps + " steps");
         return steps;
     }
     /*

@@ -28,9 +28,9 @@ public class BreathFirst extends Method {
         	}
             //System.out.println("size : " + queue.size());
             if (success(temp.grid)) {
-                    res.steps=temp.ShowProcess();
-                    System.out.println("last state");
-                    temp.show();
+                    res.steps=temp.ShowProcess();//show the process
+                    //System.out.println("last state");
+                    //temp.show();
                 System.out.println("gameover");
                 System.out.println("Nodes Explored :" + this.gridPassed.size());
                 long total_time = System.currentTimeMillis() - start_time;
