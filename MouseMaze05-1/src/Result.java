@@ -15,12 +15,11 @@ public class Result {
 	}
 	
 	public void print(){
-		/*System.out.println(this.method);
+		System.out.println(this.method);
 		System.out.println(this.steps);
 		System.out.println(this.time);
 		System.out.println(this.nodes);
-		System.out.println(this.success);*/
-		System.out.println("hello");
+		System.out.println(this.success);		
 	}
 	
 }

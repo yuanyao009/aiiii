@@ -8,7 +8,8 @@ public class Test2 {
     	for (int i=0; i<maxiter; i++){
     		Grid grid = new Grid("random");
     		BreathFirst method = new BreathFirst(grid);
-    		res[i] = method.perform();
+    		res[i] = new Result();
+    		res[i] = method.perform();    		
     	}
     	
 		/*
