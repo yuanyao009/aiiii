@@ -7,30 +7,36 @@ public class Greedy extends Method {
 
     PriorityQueue<Grid> queue;
     int heuristic;
+    final int maxTime;
+    Grid start;
 
-    public Greedy(Grid start, int heuristic) {
+    public Greedy(Grid start, int heuristic,int maxTime) {
         this.heuristic = heuristic;
         Comparator<Grid> comparator = new ComparatorGreedy();
         queue = new PriorityQueue<>(1, comparator);
         queue.add(start);
+        this.start=start;
+        this.maxTime=maxTime;
     }
-    public void perform() {
+    public Result perform() {
+    	Result res = new Result();
+    	res.method = "Greedy";
         System.out.println("Starting the Greedy");
         long start_time = System.currentTimeMillis();
 
-        if (queue.size() == 0) {
-            System.out.println("Cant start with no Board");
-            return;
-        }
         Grid temp = queue.remove();
         temp.lastGrid = null;
         Grid start_map=temp;
         possibleMoves(temp);
         while (queue.size() != 0) {
-            System.out.println("size : " + queue.size());
+        	long timePass=System.currentTimeMillis()-start_time;
+        	if(timePass>=maxTime){
+        		break;
+        	}
+            //System.out.println("size : " + queue.size());
             if (success(temp.grid)) {
-                    temp.ShowProcess();
-                    start_map.show();
+            	res.steps=temp.ShowProcess();
+                    //start_map.show();
                     temp.show();
                 System.out.println("Game Over --Solution FOUND");
 
@@ -40,7 +46,10 @@ public class Greedy extends Method {
                 System.out.println("The goal point:"+Grid.goal_x+" "+Grid.goal_y);
                 long total_time = System.currentTimeMillis() - start_time;
                 System.out.println("Time Spent :" + total_time + " ms");
-                return;
+                res.success = true;
+                res.nodes = this.gridPassed.size();
+                res.time = total_time;
+                return res;
             }
             temp = queue.remove();
             possibleMoves(temp);
@@ -57,6 +66,7 @@ public class Greedy extends Method {
         } else {
             System.out.println("Game Over --Solution NOT found");
         }
+        return res;
     }
     public void addtoQueue(Grid grid) {
     	 BlockingTilesHeuristic BlockingTilesHeuristic = new BlockingTilesHeuristic();

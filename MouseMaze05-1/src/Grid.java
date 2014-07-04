@@ -142,7 +142,7 @@ public class Grid {
         }
         return steps;
     }
-    public void ShowProcess() {
+    public int ShowProcess() {
         Grid currentGrid = this;
         System.out.println("********Final result*********");
         Stack<Grid> stack = new Stack<Grid>();
@@ -151,10 +151,13 @@ public class Grid {
             currentGrid = currentGrid.lastGrid;
         }
         int steps = stack.size();
+        /*
         while (!stack.empty()) {
             stack.pop().show();
         }
+        **/
         System.out.println("------ Done in  " + steps + " steps");
+        return steps;
     }
     /*
      * Move a specific tile in a specific direction and returns the new grid
@@ -163,25 +166,25 @@ public class Grid {
     char[][] move(char[][] grid, int i, int j, char move) {
         switch (move) {
         	case 'l':
-        		System.out.println("l"+i+j);
+        		//System.out.println("l"+i+j);
         		grid[i][j] ='A';
                 grid[i][j+1] =' ';
                 
                 break;
         	case 'r':
-        		System.out.println("r"+i+j);
+        		//System.out.println("r"+i+j);
         		grid[i][j] ='A';
                 grid[i][j-1] =' ';
                 
                 break; 
         	case 'u':
-        		System.out.println("u"+i+j);
+        		//System.out.println("u"+i+j);
         		grid[i][j] ='A';
                 grid[i+1][j] =' ';
                 
                 break;
         	case 'd':
-        		System.out.println("d"+i+j);
+        		//System.out.println("d"+i+j);
         		grid[i][j] ='A';
                 grid[i-1][j] =' ';                
                 break;	

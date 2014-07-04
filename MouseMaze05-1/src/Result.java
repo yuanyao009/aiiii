@@ -15,12 +15,13 @@ public class Result {
 	}
 	
 	public void print(){
-		/*System.out.println(this.method);
-		System.out.println(this.steps);
-		System.out.println(this.time);
-		System.out.println(this.nodes);
-		System.out.println(this.success);*/
-		System.out.println("hello");
+		System.out.println("*******************************");
+		System.out.println("method is "+ this.method);
+		System.out.println("step is "+this.steps);
+		System.out.println("time is "+this.time);
+		System.out.println("nodes explored is "+ this.nodes);
+		System.out.println("if found solution " +this.success);
+		
 	}
 	
 }

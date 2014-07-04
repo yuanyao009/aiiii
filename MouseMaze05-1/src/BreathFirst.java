@@ -4,10 +4,13 @@ import java.util.Queue;
 
 public class BreathFirst extends Method {
     Queue<Grid> queue;
-    //int shady = 0;
-    public BreathFirst(Grid start) {
+    final int maxTime;
+    Grid start;
+    public BreathFirst(Grid start,int maxTime) {
         queue = new LinkedList<Grid>();
         queue.add(start);
+        this.start=start;
+        this.maxTime=maxTime;
     }
     @Override
     public Result perform() {
@@ -19,16 +22,21 @@ public class BreathFirst extends Method {
         temp.lastGrid= null;
         possibleMoves(temp);
         while (queue.size() != 0) {
-            System.out.println("size : " + queue.size());
+        	long timePass=System.currentTimeMillis()-start_time;
+        	if(timePass>=maxTime){
+        		break;
+        	}
+            //System.out.println("size : " + queue.size());
             if (success(temp.grid)) {
-                    temp.ShowProcess();
-                    System.out.println("foolowing is temp");
+                    res.steps=temp.ShowProcess();
+                    System.out.println("last state");
                     temp.show();
                 System.out.println("gameover");
                 System.out.println("Nodes Explored :" + this.gridPassed.size());
-                //System.out.println("Nodes Explored- :" + this.explored_nodes);
                 long total_time = System.currentTimeMillis() - start_time;
                 System.out.println("Time Spent :" + total_time + " ms"); 
+                System.out.println("Start position is  :" + start.start_x+", "+start.start_y); 
+                System.out.println("Goal's position is  :" + start.goal_x+", "+start.goal_y); 
                 res.success = true;
                 res.nodes = this.gridPassed.size();
                 res.time = total_time;
@@ -45,9 +53,9 @@ public class BreathFirst extends Method {
         //System.out.println("Nodes Explored- :" + this.explored_nodes);
         if (success(temp.grid)) {
                 temp.ShowProcess();
-            System.out.println("Game Over --Solution FOUND");
+            System.out.println("--Solution FOUND");
         } else {
-            System.out.println("Game Over --Solution NOT found");
+            System.out.println("--Solution NOT FOUND");
         }
         return res;
     }
@@ -55,6 +63,6 @@ public class BreathFirst extends Method {
     public void addtoQueue(Grid board) {
         //this.explored_nodes++;
         this.queue.add(board);
-        board.show();
+        //board.show();
     }
 }

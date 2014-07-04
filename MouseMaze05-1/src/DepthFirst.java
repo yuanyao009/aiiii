@@ -4,13 +4,20 @@ import java.util.Stack;
 public class DepthFirst extends Method {
 
     Stack<Grid> stack;
-
-    public DepthFirst(Grid start) {
+    final int maxTime;
+    Grid start;
+    
+    public DepthFirst(Grid start,int maxTime) {
         stack = new Stack<>();
         stack.add(start);
+        this.start=start;
+        this.maxTime=maxTime;
     }
     @Override
-    public void perform() {
+    public Result perform() {
+    	Result res = new Result();
+    	res.method = "DepthFirst";
+
         System.out.println("Starting the DFS");
         long start_time = System.currentTimeMillis();
 /*
@@ -24,10 +31,13 @@ public class DepthFirst extends Method {
         temp.lastGrid = null;
         possibleMoves(temp);//add to stack
         while (stack.size() != 0) {
-            System.out.println("size : " + stack.size());
+        	long timePass=System.currentTimeMillis()-start_time;
+        	if(timePass>=maxTime){
+        		break;
+        	}
+            //System.out.println("size : " + stack.size());
             if (success(temp.grid)) {
-                    temp.ShowProcess();;
-                    start_map.show();
+            	res.steps=temp.ShowProcess();
                     temp.show();;
                 System.out.println("gameover");
                 System.out.println("Nodes Explored :" + this.gridPassed.size());
@@ -37,7 +47,10 @@ public class DepthFirst extends Method {
                 System.out.println("Time Spent :" + total_time + " ms");
                 System.out.println("The start point:"+Grid.start_x+" "+Grid.start_y);
                 System.out.println("The goal point:"+Grid.goal_x+" "+Grid.goal_y);
-                return;
+                res.success = true;
+                res.nodes = this.gridPassed.size();
+                res.time = total_time;
+                return res;
             }
             temp = stack.pop();
             possibleMoves(temp);
@@ -51,15 +64,15 @@ public class DepthFirst extends Method {
         //System.out.println("Nodes Explored- :" + this.explored_nodes);
 
         if (success(temp.grid)) {
-                temp.ShowProcess();;
+                //temp.ShowProcess();
             System.out.println("Game Over --Solution FOUND");
         } else {
             System.out.println("Game Over --Solution NOT found");
         }
+        return res;
     }
     @Override
     public void addtoQueue(Grid board) {
-        //this.explored_nodes++;
         this.stack.add(board);
     }
 }

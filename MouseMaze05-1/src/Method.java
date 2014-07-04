@@ -67,7 +67,7 @@ public class Method{
                     		arr[0]=i+1;
                     		arr[1]=j;
                     		map.put("d",arr);
-                    		System.out.println("d"+arr[0]);
+                    		//System.out.println("d"+arr[0]);
                     	}
                     	if(j+1<b.grid.length && b.grid[i][j+1]==' '){
                     		int[] arr=new int[2];
