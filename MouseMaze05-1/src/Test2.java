@@ -12,9 +12,9 @@ public class Test2 {
     	//System.out.println("pleas input the game level: ");
     	//String level= input2.next();//easy,normal,hard
     	int maxiter = Integer.parseInt(input.next());//change iteration
-    	System.out.println("please input the time limit : ");
+    	System.out.println("please input the time limit (second) : ");
     	
-    	int maxTime=Integer.parseInt(input.next())*60*1000;//change the limited time,if it can not find solution in this time, it will stop!
+    	int maxTime=Integer.parseInt(input.next())*1000;//change the limited time,if it can not find solution in this time, it will stop!
 		res = new Result[maxiter*4];
     	for (int i=0; i<maxiter; i++){
     		Grid grid = new Grid("random");
