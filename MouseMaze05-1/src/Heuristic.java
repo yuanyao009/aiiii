@@ -28,8 +28,6 @@ public class Heuristic {
     	double distance=(mouseP[0]-gridClass.goal[0])*(mouseP[0]-gridClass.goal[0])+(mouseP[1]-gridClass.goal[1])*(mouseP[1]-gridClass.goal[1]);
     	return distance;
     }  
-    
-    
     /*
     public int score(char[][] grid) {
         int numBlocking = 0;

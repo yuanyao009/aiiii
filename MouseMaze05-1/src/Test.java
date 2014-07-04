@@ -16,6 +16,8 @@ public class Test {
     	int maxTime=Integer.parseInt(input.next())*1000;//change the limited time,if it can not find solution in this time, it will stop!
 		res = new Result[maxiter*4];
     	for (int i=0; i<maxiter; i++){
+    		System.out.println("");
+    		System.out.println("Starting puzzle " +i+":");
     		Grid grid = new Grid("random");
     		for(int j=0;j<4;j++){
     			switch (j){
@@ -44,7 +46,6 @@ public class Test {
     	printTable();
     	System.out.println("**********************************************************");
     	printAverageTable();
-		
     	}
 
 	//print the table including every iterate

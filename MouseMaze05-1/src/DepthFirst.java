@@ -53,18 +53,18 @@ public class DepthFirst extends Method {
             possibleMoves(temp);
         }
         //stack is empty
-        System.out.println("EMPTY stack");
+        //System.out.println("EMPTY stack");
         long total_time = System.currentTimeMillis() - start_time;
-        System.out.println("Time Spent :" + total_time + " ms");
+        //System.out.println("Time Spent :" + total_time + " ms");
 //        temp.visualize();
-        System.out.println("Nodes Explored :" + this.gridPassed.size());
+        //System.out.println("Nodes Explored :" + this.gridPassed.size());
         //System.out.println("Nodes Explored- :" + this.explored_nodes);
 
         if (success(temp.grid)) {
                 //temp.ShowProcess();
-            System.out.println("Game Over --Solution FOUND");
+            //System.out.println("Game Over --Solution FOUND");
         } else {
-            System.out.println("Game Over --Solution NOT found");
+            //System.out.println("Game Over --Solution NOT found");
         }
         return res;
     }

@@ -48,16 +48,16 @@ public class BreathFirst extends Method {
             possibleMoves(temp);
         }
         
-        System.out.println("EMPTY QUEUE");
+        //System.out.println("EMPTY QUEUE");
         long total_time = System.currentTimeMillis() - start_time;
         //System.out.println("Time Spent :" + total_time + " ms");
         //System.out.println("Nodes Explored :" + this.gridPassed.size());
         //System.out.println("Nodes Explored- :" + this.explored_nodes);
         if (success(temp.grid)) {
                 temp.ShowProcess();
-            System.out.println("--Solution FOUND");
+            //System.out.println("--Solution FOUND");
         } else {
-            System.out.println("--Solution NOT FOUND");
+            //System.out.println("--Solution NOT FOUND");
         }
         return res;
     }

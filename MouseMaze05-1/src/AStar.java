@@ -20,7 +20,7 @@ public class AStar extends Method {
     public Result perform() {
     	Result res=new Result();
     	res.method="AStar";
-        System.out.println("Astar method");
+        System.out.println("Starting the AStar ");
         long start_time = System.currentTimeMillis();
         Grid temp = queue.remove();
         Grid start_map=temp;
@@ -37,7 +37,7 @@ public class AStar extends Method {
                     //temp.ShowProcess();
                     //start_map.show();
                     //temp.show();
-                System.out.println("Game Over --Solution FOUND");
+                //System.out.println("Game Over --Solution FOUND");
                 //System.out.println("Nodes Explored :" + this.gridPassed.size());
                 //System.out.println("Nodes Explored- :" + this.explored_nodes);
                 long total_time = System.currentTimeMillis() - start_time;
@@ -59,9 +59,9 @@ public class AStar extends Method {
         //System.out.println("Nodes Explored- :" + this.explored_nodes);
         if (success(temp.grid)) {
                 //temp.ShowProcess();
-            System.out.println("Game Over --Solution FOUND");
+            //System.out.println("Game Over --Solution FOUND");
         } else {
-            System.out.println("Game Over --Solution NOT found");
+            //System.out.println("Game Over --Solution NOT found");
         }
         return res;
     }

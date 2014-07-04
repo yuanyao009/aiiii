@@ -40,7 +40,7 @@ public class Greedy extends Method {
             	res.steps=temp.ShowProcess();
                     //start_map.show();
                     //temp.show();
-                System.out.println("Game Over --Solution FOUND");
+               // System.out.println("Game Over --Solution FOUND");
 
                 //System.out.println("Nodes Explored :" + this.gridPassed.size());
                 //System.out.println("The start point:"+Grid.start_x+" "+Grid.start_y);
@@ -55,7 +55,7 @@ public class Greedy extends Method {
             temp = queue.remove();
             possibleMoves(temp);
         }
-        System.out.println("EMPTY QUEUE");
+        //System.out.println("EMPTY QUEUE");
         long total_time = System.currentTimeMillis() - start_time;
         //System.out.println("Time Spent :" + total_time + " ms");
         //System.out.println("Nodes Explored :" + this.gridPassed.size());
@@ -63,9 +63,9 @@ public class Greedy extends Method {
 
         if (success(temp.grid)) {
                 //temp.ShowProcess();
-            System.out.println("Game Over --Solution FOUND");
+            //System.out.println("Game Over --Solution FOUND");
         } else {
-            System.out.println("Game Over --Solution NOT found");
+            //System.out.println("Game Over --Solution NOT found");
         }
         return res;
     }
