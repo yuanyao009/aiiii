@@ -3,7 +3,7 @@ public class Test2 {
 	public static Result[] res;
 	
 	public static void main(String[] args) {
-    	int maxiter = 4;//change iteration
+    	int maxiter = 100;//change iteration
     	final int maxTime=1*60*1000;//change the limited time,if it can not find solution in this time, it will stop!
 		res = new Result[maxiter*4];
     	for (int i=0; i<maxiter; i++){
