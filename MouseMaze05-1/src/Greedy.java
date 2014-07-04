@@ -24,18 +24,20 @@ public class Greedy extends Method {
         }
         Grid temp = queue.remove();
         temp.lastGrid = null;
+        Grid start_map=temp;
         possibleMoves(temp);
         while (queue.size() != 0) {
             System.out.println("size : " + queue.size());
             if (success(temp.grid)) {
                     temp.ShowProcess();
+                    start_map.show();
                     temp.show();
                 System.out.println("Game Over --Solution FOUND");
 
                 System.out.println("Nodes Explored :" + this.gridPassed.size());
                 //System.out.println("Nodes Explored- :" + this.numGrid);
-
-
+                System.out.println("The start point:"+Grid.start_x+" "+Grid.start_y);
+                System.out.println("The goal point:"+Grid.goal_x+" "+Grid.goal_y);
                 long total_time = System.currentTimeMillis() - start_time;
                 System.out.println("Time Spent :" + total_time + " ms");
                 return;

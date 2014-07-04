@@ -11,13 +11,72 @@ public class Grid {
     public long time = System.currentTimeMillis();
     public int dimension=6;
     public int[] goal=new int[2];
+    public static int goal_x=0;
+    public static int goal_y=5;
+    public static int start_x=1;
+    public static int start_y=2;
+    
     
     public Grid(){
     	grid=new char[dimension][dimension];
     }
     public Grid(String level) {
-    	//switch (level) {
-        /*case "easy":
+    	switch (level) {
+    	case "random":
+    		grid = new char[][]{
+    	            {' ',' ',' ',' ',' ',' '},
+    	            {' ',' ',' ',' ',' ',' '},
+    	            {' ',' ',' ',' ',' ',' '}, 
+    	            {' ',' ',' ',' ',' ',' '},
+    	            {' ',' ',' ',' ',' ',' '},
+    	            {' ',' ',' ',' ',' ',' '}};
+    		 start_x=(int)(Math.random()*6);
+    		 start_y=(int)(Math.random()*6);
+    		int temp_goal_x=(int)(Math.random()*6);
+    		int temp_goal_y=(int)(Math.random()*6);
+    		while(start_x==temp_goal_x&&start_y==temp_goal_y)
+    		{temp_goal_x=(int)(Math.random()*6);
+    		temp_goal_y=(int)(Math.random()*6);}
+    		goal_x=temp_goal_x;
+    		goal_y=temp_goal_y;
+    		grid[start_x][start_y]='A';
+    	        int counter = 0;
+    	        for (int i = 0; i < 100000 && counter < 6; i++) {
+    	            try {
+    	                int row = (int) (Math.random() * 6);
+    	                int col = (int) (Math.random() * 6);
+    	                double orientation = Math.random();
+    	                if (orientation <= 0.5) {
+    	                    if (grid[row][col] == ' ' && grid[row][col + 1] == ' ') {
+    	                        grid[row][col] = '<';
+    	                        grid[row][col + 1] = '>';
+    	                        counter++;
+    	                    }
+    	                } else {
+    	                    if (orientation < 0.75) {
+    	                        if (grid[row][col] == ' ' && grid[row + 1][col] ==' ') {
+    	                            grid[row][col] = '^';
+    	                            grid[row + 1][col] ='v';
+    	                            counter++;
+    	                        }
+    	                    } else {
+    	                        if (grid[row][col] ==' ' && grid[row + 1][col] == ' '
+    	                                && grid[row + 2][col] == ' ') {
+    	                            grid[row][col] ='^';
+    	                            grid[row + 1][col] ='|';
+    	                            grid[row + 2][col] ='v';
+    	                            counter++;
+    	                        }
+    	                    }
+    	                }
+    	            } catch (Exception e) {
+    	                // TODO: handle exception
+    	            }
+    	        }
+    	        
+         break;
+    	
+        case "easy":
         	grid = new char[][]{
         			{3, 6, 7, 6, 7, 3},
                     {4, 0, 3, 0, 3, 5},
@@ -26,8 +85,8 @@ public class Grid {
                     {5, 5, 5, 3, 3, 5},
                     {4, 4, 4, 4, 4, 4}};
     	break;
-    	*/
-        //case "normal":  
+    	
+        case "normal":  
             grid = new char[][]{
             		{' ', ' ', '<', '>', '<', '>'},
                     {' ', '<', '>', '<', '>', '^'},
@@ -35,11 +94,10 @@ public class Grid {
                     {'<', '>', '<', '>', 'v', 'v'},
                     {'^', ' ', ' ', '^', '<', '>'},
                     {'v', ' ', ' ', 'v', '<', '>'}};
-            
             goal[0]=2;
             goal[1]=5;
-        //break;
-        /*
+        break;
+        
         case "hard":  
             grid = new char[][]{
             		{6, 8, 7, 3, 3, 3},
@@ -49,7 +107,7 @@ public class Grid {
                     {0, 3, 4, 0, 6, 7},
                     {0, 4, 6, 7, 6, 7}};      
     }
-    */
+    
 }
     public void setGoal(int x, int y){
     	goal[0]=x;

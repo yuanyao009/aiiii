@@ -18,18 +18,22 @@ public class AStar extends Method {
         System.out.println("Astar method");
         long start_time = System.currentTimeMillis();
         Grid temp = queue.remove();
+        Grid start_map=temp;
         temp.lastGrid = null;
         possibleMoves(temp);
         while (queue.size() != 0) {
             System.out.println("size : " + queue.size());
             if (success(temp.grid)) {
                     temp.ShowProcess();
+                    start_map.show();
                     temp.show();
                 System.out.println("Game Over --Solution FOUND");
                 System.out.println("Nodes Explored :" + this.gridPassed.size());
                 //System.out.println("Nodes Explored- :" + this.explored_nodes);
                 long total_time = System.currentTimeMillis() - start_time;
                 System.out.println("Time Spent :" + total_time + " ms");
+                System.out.println("The start point:"+Grid.start_x+" "+Grid.start_y);
+                System.out.println("The goal point:"+Grid.goal_x+" "+Grid.goal_y);
                 return;
             }
             temp = queue.remove();

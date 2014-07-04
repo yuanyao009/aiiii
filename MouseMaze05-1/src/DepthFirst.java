@@ -20,12 +20,14 @@ public class DepthFirst extends Method {
         }
         **/
         Grid temp = stack.pop();
+        Grid start_map=temp;
         temp.lastGrid = null;
         possibleMoves(temp);//add to stack
         while (stack.size() != 0) {
             System.out.println("size : " + stack.size());
             if (success(temp.grid)) {
                     temp.ShowProcess();;
+                    start_map.show();
                     temp.show();;
                 System.out.println("gameover");
                 System.out.println("Nodes Explored :" + this.gridPassed.size());
@@ -33,6 +35,8 @@ public class DepthFirst extends Method {
 
                 long total_time = System.currentTimeMillis() - start_time;
                 System.out.println("Time Spent :" + total_time + " ms");
+                System.out.println("The start point:"+Grid.start_x+" "+Grid.start_y);
+                System.out.println("The goal point:"+Grid.goal_x+" "+Grid.goal_y);
                 return;
             }
             temp = stack.pop();

@@ -166,8 +166,8 @@ public class Method{
         }
     }
     public boolean success(char[][] board) {
-        if (board[3][5] == 'A') {
-        	System.out.println("25 is "+board[2][5]);
+        if (board[Grid.goal_x][Grid.goal_y] == 'A') {
+//        	System.out.println("25 is "+board[2][5]);
             return true;
         }
         return false;
