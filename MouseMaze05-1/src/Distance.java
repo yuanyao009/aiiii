@@ -1,5 +1,5 @@
 /**
-* Calculate the horizontal distance from the mouse to the cheese
+* Calculate the Manhattan distance from the mouse to the cheese
 */
 public class Distance extends Heuristic {
 

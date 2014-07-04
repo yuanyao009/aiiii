@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Test {
 	public static Result[] res;
 	public  static int maxiter;
-	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter the number of random puzzles to generate: ");
@@ -26,7 +25,7 @@ public class Test {
     				res[j+4*i] = method0.perform();
     				break;
     			case 1:
-    				BreathFirst method1 = new BreathFirst(grid,maxTime);
+    				BreadthFirst method1 = new BreadthFirst(grid,maxTime);
     				res[j+4*i] = method1.perform();
     				break;
     			case 2:
@@ -57,7 +56,7 @@ public class Test {
 			System.out.println("steps	"+res[0+4*i].steps+"		"+res[1+4*i].steps+"		"+res[2+4*i].steps+"	"+res[3+4*i].steps+"		");
 			System.out.println("nodes	"+res[0+4*i].nodes+"		"+res[1+4*i].nodes+"		"+res[2+4*i].nodes+"	"+res[3+4*i].nodes+"		");
 			System.out.println("time(ms)"+res[0+4*i].time+"		"+res[1+4*i].time+"		"+res[2+4*i].time+"	"+res[3+4*i].time+"		");
-			System.out.println("sucess	"+res[0+4*i].success+"		"+res[1+4*i].success+"		"+res[2+4*i].success+"	"+res[3+4*i].success+"		");
+			System.out.println("success	"+res[0+4*i].success+"		"+res[1+4*i].success+"		"+res[2+4*i].success+"	"+res[3+4*i].success+"		");
 			System.out.println("---------------------------------------------------------");
 		}
 	}

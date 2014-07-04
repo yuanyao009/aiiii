@@ -4,11 +4,11 @@ import java.util.Queue;
  * Implement BreathFirst method. 
 */
 
-public class BreathFirst extends Method {
+public class BreadthFirst extends Method {
     Queue<Grid> queue;
     final int maxTime;
     Grid start;
-    public BreathFirst(Grid start,int maxTime) {
+    public BreadthFirst(Grid start,int maxTime) {
         queue = new LinkedList<Grid>();
         queue.add(start);
         this.start=start;
