@@ -1,10 +1,20 @@
+import java.util.Scanner;
 
 public class Test2 {
 	public static Result[] res;
 	
 	public static void main(String[] args) {
-    	int maxiter = 100;//change iteration
-    	final int maxTime=1*60*1000;//change the limited time,if it can not find solution in this time, it will stop!
+		Scanner input = new Scanner(System.in);
+		System.out.println("please input the iteration : ");
+    	
+    	//String method= input.next();//DepthFirst,IterativeDepthFirst,BreathFirst,Greed,AStar
+    	//Scanner input2= new Scanner(System.in);
+    	//System.out.println("pleas input the game level: ");
+    	//String level= input2.next();//easy,normal,hard
+    	int maxiter = Integer.parseInt(input.next());//change iteration
+    	System.out.println("please input the time limit : ");
+    	
+    	int maxTime=Integer.parseInt(input.next())*60*1000;//change the limited time,if it can not find solution in this time, it will stop!
 		res = new Result[maxiter*4];
     	for (int i=0; i<maxiter; i++){
     		Grid grid = new Grid("random");
