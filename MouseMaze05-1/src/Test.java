@@ -1,11 +1,14 @@
 import java.util.Scanner;
 /**
- *The main test of the program. 
+ *The main test of the program, where including the main class. 
 */
 public class Test {
 	public static Result[] res;
 	public  static int maxiter;
 	public static void main(String[] args) {
+		
+		
+		
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter the number of random puzzles to generate: ");
 

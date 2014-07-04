@@ -105,7 +105,7 @@ public class Grid {
         System.out.println();
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
-                System.out.print(grid[i][j] + " ");
+                //System.out.print(grid[i][j] + " ");
             }
             System.out.println();
         }
@@ -135,11 +135,13 @@ public class Grid {
             currentGrid = currentGrid.lastGrid;
         }
         int steps = stack.size();
+        //
         /*
         while (!stack.empty()) {
             stack.pop().show();
         }
         **/
+        
         //System.out.println("------ Done in  " + steps + " steps");
         return steps;
     }
