@@ -2,13 +2,14 @@ import java.util.Scanner;
 
 public class Test2 {
 	public static Result[] res;
+	public  static int maxiter;
 	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		System.out.println("please input the iteration : ");
+		System.out.println("Please enter the number of random puzzles to generate: ");
 
-    	int maxiter = Integer.parseInt(input.next());//change iteration
-    	System.out.println("please input the time limit (second) : ");
+    	maxiter = Integer.parseInt(input.next());//change iteration
+    	System.out.println("Please enter the time limit for the search in seconds (search will fail if solution is not find within the time limit): ");
     	
     	int maxTime=Integer.parseInt(input.next())*1000;//change the limited time,if it can not find solution in this time, it will stop!
 		res = new Result[maxiter*4];
@@ -51,8 +52,8 @@ public class Test2 {
 		System.out.println("detail	"+"DepthFirst	"+"BreathFirst	"+"AStar	"+"Greedy	");
 		System.out.println("---------------------------------------------------------");
 		for(int i=0;i<res.length/4;i++){
-			System.out.println("step	"+res[0+4*i].steps+"		"+res[1+4*i].steps+"		"+res[2+4*i].steps+"	"+res[3+4*i].steps+"		");
-			System.out.println("node	"+res[0+4*i].nodes+"		"+res[1+4*i].nodes+"		"+res[2+4*i].nodes+"	"+res[3+4*i].nodes+"		");
+			System.out.println("steps	"+res[0+4*i].steps+"		"+res[1+4*i].steps+"		"+res[2+4*i].steps+"	"+res[3+4*i].steps+"		");
+			System.out.println("nodes	"+res[0+4*i].nodes+"		"+res[1+4*i].nodes+"		"+res[2+4*i].nodes+"	"+res[3+4*i].nodes+"		");
 			System.out.println("time	"+res[0+4*i].time+"		"+res[1+4*i].time+"		"+res[2+4*i].time+"	"+res[3+4*i].time+"		");
 			System.out.println("sucess	"+res[0+4*i].success+"		"+res[1+4*i].success+"		"+res[2+4*i].success+"	"+res[3+4*i].success+"		");
 			System.out.println("---------------------------------------------------------");
@@ -79,16 +80,21 @@ public class Test2 {
 			}
 		}
 		for(int k=0;k<4;k++){
+			if(numTrue[k]==0){
+				step[k]=0;
+				node[k]=0;
+				time[k]=0;
+			}
 		step[k]=step[k]/numTrue[k];
 		node[k]=node[k]/numTrue[k];
 		time[k]=time[k]/numTrue[k];
 		}
 		System.out.println("average	"+"DepthFirst	"+"BreathFirst	"+"AStar	"+"Greedy	");
 		System.out.println("---------------------------------------------------------");
-		System.out.println("step	"+String.format("%.1f", step[0])+"		"+String.format("%.1f", step[1])+"		"+String.format("%.1f", step[2])+"	"+String.format("%.1f", step[3])+"		");
-		System.out.println("node	"+String.format("%.1f", node[0])+"		"+String.format("%.1f", node[1])+"		"+String.format("%.1f", node[2])+"	"+String.format("%.1f", node[3])+"		");
+		System.out.println("steps	"+String.format("%.1f", step[0])+"		"+String.format("%.1f", step[1])+"		"+String.format("%.1f", step[2])+"	"+String.format("%.1f", step[3])+"		");
+		System.out.println("nodes	"+String.format("%.1f", node[0])+"		"+String.format("%.1f", node[1])+"		"+String.format("%.1f", node[2])+"	"+String.format("%.1f", node[3])+"		");
 		System.out.println("time	"+String.format("%.1f", time[0])+"		"+String.format("%.1f", time[1])+"		"+String.format("%.1f", time[2])+"	"+String.format("%.1f", time[3])+"		");
-		//System.out.println("sucess	"+res[0+4*i].success+"		"+res[1+4*i].success+"		"+res[2+4*i].success+"	"+res[3+4*i].success+"		");
+		System.out.println("sucess	"+String.format("%2.0f", numTrue[0]*100/maxiter)+"%		"+String.format("%2.0f", numTrue[1]*100/maxiter)+"%		"+String.format("%2.0f", numTrue[2]*100/maxiter)+"%	"+String.format("%2.0f", numTrue[2]*100/maxiter)+"%");//System.out.println("sucess	"+res[0+4*i].success+"		"+res[1+4*i].success+"		"+res[2+4*i].success+"	"+res[3+4*i].success+"		");
 	}
 	//String.format("%.2f", i2)
 
