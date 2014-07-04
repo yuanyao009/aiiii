@@ -49,17 +49,16 @@ public class Test2 {
 	
 	public static void printTable(){
 		System.out.println("**********************************************************");
-		System.out.println("detail	"+"DepthFirst	"+"BreathFirst	"+"AStar	"+"Greedy	");
+		System.out.println("detail	"+"DepthFirst	"+"BreadthFirst	"+"AStar	"+"Greedy	");
 		System.out.println("---------------------------------------------------------");
 		for(int i=0;i<res.length/4;i++){
 			System.out.println("steps	"+res[0+4*i].steps+"		"+res[1+4*i].steps+"		"+res[2+4*i].steps+"	"+res[3+4*i].steps+"		");
 			System.out.println("nodes	"+res[0+4*i].nodes+"		"+res[1+4*i].nodes+"		"+res[2+4*i].nodes+"	"+res[3+4*i].nodes+"		");
-			System.out.println("time	"+res[0+4*i].time+"		"+res[1+4*i].time+"		"+res[2+4*i].time+"	"+res[3+4*i].time+"		");
+			System.out.println("time(ms)"+res[0+4*i].time+"		"+res[1+4*i].time+"		"+res[2+4*i].time+"	"+res[3+4*i].time+"		");
 			System.out.println("sucess	"+res[0+4*i].success+"		"+res[1+4*i].success+"		"+res[2+4*i].success+"	"+res[3+4*i].success+"		");
 			System.out.println("---------------------------------------------------------");
 		}
 	}
-	
 	public static void printAverageTable(){
 		
 		double [] step=new double[4];
@@ -89,11 +88,11 @@ public class Test2 {
 		node[k]=node[k]/numTrue[k];
 		time[k]=time[k]/numTrue[k];
 		}
-		System.out.println("average	"+"DepthFirst	"+"BreathFirst	"+"AStar	"+"Greedy	");
+		System.out.println("average	"+"DepthFirst	"+"BreadthFirst	"+"AStar	"+"Greedy	");
 		System.out.println("---------------------------------------------------------");
 		System.out.println("steps	"+String.format("%.1f", step[0])+"		"+String.format("%.1f", step[1])+"		"+String.format("%.1f", step[2])+"	"+String.format("%.1f", step[3])+"		");
 		System.out.println("nodes	"+String.format("%.1f", node[0])+"		"+String.format("%.1f", node[1])+"		"+String.format("%.1f", node[2])+"	"+String.format("%.1f", node[3])+"		");
-		System.out.println("time	"+String.format("%.1f", time[0])+"		"+String.format("%.1f", time[1])+"		"+String.format("%.1f", time[2])+"	"+String.format("%.1f", time[3])+"		");
+		System.out.println("time(ms)"+String.format("%.1f", time[0])+"		"+String.format("%.1f", time[1])+"		"+String.format("%.1f", time[2])+"	"+String.format("%.1f", time[3])+"		");
 		System.out.println("sucess	"+String.format("%2.0f", numTrue[0]*100/maxiter)+"%		"+String.format("%2.0f", numTrue[1]*100/maxiter)+"%		"+String.format("%2.0f", numTrue[2]*100/maxiter)+"%	"+String.format("%2.0f", numTrue[2]*100/maxiter)+"%");//System.out.println("sucess	"+res[0+4*i].success+"		"+res[1+4*i].success+"		"+res[2+4*i].success+"	"+res[3+4*i].success+"		");
 	}
 	//String.format("%.2f", i2)
