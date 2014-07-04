@@ -1,4 +1,6 @@
-
+/**
+ *restore every result,including method name, number of nodes explored, time spend,number of steps and if success 
+*/
 public class Result {
 	public String method;
 	public int nodes;

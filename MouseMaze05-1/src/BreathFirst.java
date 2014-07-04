@@ -1,6 +1,8 @@
-
 import java.util.LinkedList;
 import java.util.Queue;
+/**
+ * Implement BreathFirst method. 
+*/
 
 public class BreathFirst extends Method {
     Queue<Grid> queue;

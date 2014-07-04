@@ -1,9 +1,8 @@
-
-/**
- * A* method. 
-*/
 import java.util.*;
 
+/**
+ *Implement A* method. 
+*/
 public class AStar extends Method {
     PriorityQueue<Grid> queue;
     double heuristic;
@@ -68,7 +67,7 @@ public class AStar extends Method {
     }
     public void addtoQueue(Grid grid) {
          //BlockingTilesHeuristic BlockingTilesHeuristic = new BlockingTilesHeuristic();
-    	BlockingTilesHeuristic BlockingTilesHeuristic = new BlockingTilesHeuristic();
+    	Distance BlockingTilesHeuristic = new Distance();
     	grid.heuristic = BlockingTilesHeuristic.score(grid.grid);
     	grid.cost = grid.lastGrid.cost + grid.heuristic;
     	this.queue.add(grid);

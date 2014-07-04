@@ -1,12 +1,13 @@
 /**
- * Construct the grid of game;
+ * Construct the grid class of game,including mouse,goal position;
  */
+
 import java.util.*;
 
 public class Grid {
     public char[][] grid;
     public Grid lastGrid;
-    public int cost; //cost to be used in the hurstic fucntion
+    public int cost; 
     public int heuristic;
     public long time = System.currentTimeMillis();
     public int dimension=6;
@@ -20,6 +21,8 @@ public class Grid {
     public Grid(){
     	grid=new char[dimension][dimension];
     }
+    
+    //generate the grid in random or hard-coded way 
     public Grid(String level) {
     	switch (level) {
     	case "random":
@@ -76,16 +79,6 @@ public class Grid {
     	        
          break;
     	
-        case "easy":
-        	grid = new char[][]{
-        			{3, 6, 7, 6, 7, 3},
-                    {4, 0, 3, 0, 3, 5},
-                    {1, 2, 4, 3, 5, 4},
-                    {3, 3, 3, 4, 4, 3},
-                    {5, 5, 5, 3, 3, 5},
-                    {4, 4, 4, 4, 4, 4}};
-    	break;
-    	
         case "normal":  
             grid = new char[][]{
             		{' ', ' ', '<', '>', '<', '>'},
@@ -97,16 +90,7 @@ public class Grid {
             goal[0]=2;
             goal[1]=5;
         break;
-        
-        case "hard":  
-            grid = new char[][]{
-            		{6, 8, 7, 3, 3, 3},
-                    {3, 6, 7, 4, 5, 5},
-                    {4, 0, 1, 2, 4, 4},
-                    {6, 7, 3, 0, 0, 0},
-                    {0, 3, 4, 0, 6, 7},
-                    {0, 4, 6, 7, 6, 7}};      
-    }
+    	}
     
 }
     public void setGoal(int x, int y){
@@ -160,8 +144,7 @@ public class Grid {
         return steps;
     }
     /*
-     * Move a specific tile in a specific direction and returns the new grid
-     * after that move
+     * Define how to move a block and generate a new grid
      */
     char[][] move(char[][] grid, int i, int j, char move) {
         switch (move) {
@@ -234,10 +217,10 @@ public class Grid {
         return grid;
     }
     /*
-     * Makes sure that the no explored state can be repeated , returns true in
-     * case that the grid configuration is unqiueq false otherwise
+     * Makes sure that the no explored gird can be repeated , returns true in
+     * case that the grid configuration is unique, false otherwise
      */
-    public boolean canAdd(char[][] grid, Queue<Grid> explored) {
+    public boolean insert(char[][] grid, Queue<Grid> explored) {
         if (explored.isEmpty()) {
             return true;
         }

@@ -1,6 +1,8 @@
 import java.util.Scanner;
-
-public class Test2 {
+/**
+ *The main test of the program. 
+*/
+public class Test {
 	public static Result[] res;
 	public  static int maxiter;
 	
@@ -42,11 +44,10 @@ public class Test2 {
     	printTable();
     	System.out.println("**********************************************************");
     	printAverageTable();
-		//for (int i=0; i<maxiter*4; i++){
-    		//res[i].print();
+		
     	}
 
-	
+	//print the table including every iterate
 	public static void printTable(){
 		System.out.println("**********************************************************");
 		System.out.println("detail	"+"DepthFirst	"+"BreadthFirst	"+"AStar	"+"Greedy	");
@@ -59,6 +60,7 @@ public class Test2 {
 			System.out.println("---------------------------------------------------------");
 		}
 	}
+	//print the final average table
 	public static void printAverageTable(){
 		
 		double [] step=new double[4];
@@ -95,6 +97,4 @@ public class Test2 {
 		System.out.println("time(ms)"+String.format("%.1f", time[0])+"		"+String.format("%.1f", time[1])+"		"+String.format("%.1f", time[2])+"	"+String.format("%.1f", time[3])+"		");
 		System.out.println("sucess	"+String.format("%2.0f", numTrue[0]*100/maxiter)+"%		"+String.format("%2.0f", numTrue[1]*100/maxiter)+"%		"+String.format("%2.0f", numTrue[2]*100/maxiter)+"%	"+String.format("%2.0f", numTrue[2]*100/maxiter)+"%");//System.out.println("sucess	"+res[0+4*i].success+"		"+res[1+4*i].success+"		"+res[2+4*i].success+"	"+res[3+4*i].success+"		");
 	}
-	//String.format("%.2f", i2)
-
 }

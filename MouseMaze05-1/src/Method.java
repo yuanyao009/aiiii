@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.Map.Entry;
 /**
- * Explain detailed the moving strategy.
+ * Explain the moving strategy in detail.<>,<-> can only move horizontally;^v,^|v can only move vertically
  */
 public class Method{
 
@@ -14,11 +14,11 @@ public class Method{
         this.gridPassed = new LinkedList<Grid>();
     }
     public Result perform() {
-        //throw new UnsupportedOperationException("Not supported yet.");
+        
     	return new Result();
     }
     public void addtoQueue(Grid board) {
-        //throw new UnsupportedOperationException("Not supported yet.");
+        
     }
     public void possibleMoves(Grid b) {
         for (int i = 0; i < b.grid.length; i++) {
@@ -38,7 +38,7 @@ public class Method{
                         try {
                             if (b.grid[i][j - 1] == ' ') {
                                 tempBoard.grid = tempBoard.move(tempBoard.grid, i, j, '<');
-                                if (tempBoard.canAdd(tempBoard.grid, this.gridPassed)) {
+                                if (tempBoard.insert(tempBoard.grid, this.gridPassed)) {
                                     tempBoard.lastGrid = b;
                                     addtoQueue(tempBoard);
                                     gridPassed.add(tempBoard);
@@ -81,7 +81,7 @@ public class Method{
                     		for (Entry<String, int[]> entry : map.entrySet()) {
                     			if(entry.getKey()=="l"){
                     				tempBoardl.grid=tempBoardl.move(tempBoardl.grid, entry.getValue()[0], entry.getValue()[1], 'l');
-    								if (tempBoardl.canAdd(tempBoardl.grid, this.gridPassed)) {
+    								if (tempBoardl.insert(tempBoardl.grid, this.gridPassed)) {
     		                            tempBoardl.lastGrid = b;
     		                            addtoQueue(tempBoardl);
     		                            gridPassed.add(tempBoardl);
@@ -89,7 +89,7 @@ public class Method{
                     			}
                     			else if((entry.getKey()=="r")){
                     				tempBoardr.grid=tempBoardr.move(tempBoardr.grid, entry.getValue()[0], entry.getValue()[1], 'r');
-    								if (tempBoardr.canAdd(tempBoardr.grid, this.gridPassed)) {
+    								if (tempBoardr.insert(tempBoardr.grid, this.gridPassed)) {
     		                            tempBoardr.lastGrid = b;
     		                            addtoQueue(tempBoardr);
     		                            gridPassed.add(tempBoardr);
@@ -98,7 +98,7 @@ public class Method{
 	                    			
                     			else if((entry.getKey()=="u")){
                     				tempBoardu.grid=tempBoardu.move(tempBoardu.grid, entry.getValue()[0], entry.getValue()[1], 'u');
-    								if (tempBoardu.canAdd(tempBoardu.grid, this.gridPassed)) {
+    								if (tempBoardu.insert(tempBoardu.grid, this.gridPassed)) {
     		                            tempBoardu.lastGrid = b;
     		                            addtoQueue(tempBoardu);
     		                            gridPassed.add(tempBoardu);
@@ -106,7 +106,7 @@ public class Method{
                     			}
                     			else if((entry.getKey()=="d")){
 									tempBoardd.grid=tempBoardd.move(tempBoard.grid, entry.getValue()[0], entry.getValue()[1], 'd');
-    								if (tempBoardd.canAdd(tempBoardd.grid, this.gridPassed)) {
+    								if (tempBoardd.insert(tempBoardd.grid, this.gridPassed)) {
     		                            tempBoardd.lastGrid = b;
     		                            addtoQueue(tempBoardd);
     		                            gridPassed.add(tempBoardd);
@@ -121,7 +121,7 @@ public class Method{
                         try {
                             if (b.grid[i][j + 1] == ' ') {
                                 tempBoard.grid = tempBoard.move(tempBoard.grid, i, j, '>');
-                                if (tempBoard.canAdd(tempBoard.grid, this.gridPassed)) {
+                                if (tempBoard.insert(tempBoard.grid, this.gridPassed)) {
                                     tempBoard.lastGrid = b;
                                     addtoQueue(tempBoard);
                                     gridPassed.add(tempBoard);
@@ -135,7 +135,7 @@ public class Method{
                         try {
                             if (b.grid[i - 1][j] == ' ') {
                                 tempBoard.grid = tempBoard.move(tempBoard.grid, i, j, '^');
-                                if (tempBoard.canAdd(tempBoard.grid, this.gridPassed)) {
+                                if (tempBoard.insert(tempBoard.grid, this.gridPassed)) {
                                     tempBoard.lastGrid = b;
                                     addtoQueue(tempBoard);
                                     gridPassed.add(tempBoard);
@@ -150,7 +150,7 @@ public class Method{
                         try {
                             if (b.grid[i + 1][j] == ' ') {
                                 tempBoard.grid = tempBoard.move(tempBoard.grid, i, j, 'v');
-                                if (tempBoard.canAdd(tempBoard.grid, this.gridPassed)) {
+                                if (tempBoard.insert(tempBoard.grid, this.gridPassed)) {
                                     tempBoard.lastGrid = b;
                                     addtoQueue(tempBoard);
                                     gridPassed.add(tempBoard);
@@ -166,9 +166,8 @@ public class Method{
             }
         }
     }
-    public boolean success(char[][] board) {
-        if (board[Grid.goal_x][Grid.goal_y] == 'A') {
-//        	System.out.println("25 is "+board[2][5]);
+    public boolean success(char[][] grid) {
+        if (grid[Grid.goal_x][Grid.goal_y] == 'A') {
             return true;
         }
         return false;

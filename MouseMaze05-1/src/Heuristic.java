@@ -1,4 +1,6 @@
-
+/*
+* Heuristic function is used in Greedy and AStar search
+*/
 public class Heuristic {
 	public Grid gridClass;
 	public char[][] grid;
@@ -8,7 +10,7 @@ public class Heuristic {
 		this.grid=grid.grid;
 	}
 	**/
-
+//get mouse position
     public int[] getMousePosition(char[][] grid) {
         int[] mouseP = new int[2];
         for (int i = 0; i < grid.length; i++) {
@@ -20,15 +22,13 @@ public class Heuristic {
         }
         return mouseP;
     }
-    
+    //get the distance between mouse and cheese
     public double distance(char[][] grid) {
     	int[] mouseP=getMousePosition(grid);
     	double distance=(mouseP[0]-gridClass.goal[0])*(mouseP[0]-gridClass.goal[0])+(mouseP[1]-gridClass.goal[1])*(mouseP[1]-gridClass.goal[1]);
     	return distance;
     }  
-    /*
-    * returns the horizontal position of the whole mouse (2 blocks)
-    */
+    
     
     /*
     public int score(char[][] grid) {
@@ -43,6 +43,6 @@ public class Heuristic {
     }
     **/
     public int score(char[][] board) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("not here.");
     }
 }

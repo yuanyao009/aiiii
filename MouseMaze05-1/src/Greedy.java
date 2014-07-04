@@ -2,7 +2,9 @@
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
-
+/**
+ *Implement Greedy search method. 
+*/
 public class Greedy extends Method {
 
     PriorityQueue<Grid> queue;
@@ -68,15 +70,8 @@ public class Greedy extends Method {
         return res;
     }
     public void addtoQueue(Grid grid) {
-    	 BlockingTilesHeuristic BlockingTilesHeuristic = new BlockingTilesHeuristic();
+    	 Distance BlockingTilesHeuristic = new Distance();
     	 grid.heuristic = BlockingTilesHeuristic.score(grid.grid);
-         
-    	 //BlockingTilesHeuristic BlockingTilesHeuristic = new BlockingTilesHeuristic();
-   	 	//Heuristic heu=new Heuristic(grid);
-        //grid.heuristic = heu.distance();
-        //board.cost = board.lastGrid.cost + board.heuristic;
-        //System.out.println("heu is" + grid.heuristic);
-       // this.explored_nodes++;
         this.queue.add(grid);
     }
 }

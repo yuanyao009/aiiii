@@ -1,5 +1,8 @@
 
 import java.util.Stack;
+/**
+ *Implement depthFirst search method. 
+*/
 
 public class DepthFirst extends Method {
 
@@ -19,14 +22,9 @@ public class DepthFirst extends Method {
     	res.method = "DepthFirst";
         System.out.println("Starting the DFS");
         long start_time = System.currentTimeMillis();
-/*
-        if (stack.size() == 0) {
-            System.out.println("Cant start with no Board");
-            return;
-        }
-        **/
+
         Grid temp = stack.pop();
-        Grid start_map=temp;
+        Grid startMap=temp;
         temp.lastGrid = null;
         possibleMoves(temp);//add to stack
         while (stack.size() != 0) {
