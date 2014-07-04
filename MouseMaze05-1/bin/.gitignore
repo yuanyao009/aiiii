@@ -1,4 +1,3 @@
-/.DS_Store
 /AStar.class
 /BreathFirst.class
 /Comparator1.class
@@ -9,8 +8,12 @@
 /IterativeDepthFirst.class
 /Method.class
 /Test.class
+<<<<<<< HEAD
 /DepthLimit.class
 /BlockingTilesHeuristic.class
 /ComparatorAStar.class
 /Comparator.class
 /ComparatorGreedy.class
+=======
+/.DS_Store
+>>>>>>> FETCH_HEAD
