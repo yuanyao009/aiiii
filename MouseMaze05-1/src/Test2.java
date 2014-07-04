@@ -6,11 +6,7 @@ public class Test2 {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		System.out.println("please input the iteration : ");
-    	
-    	//String method= input.next();//DepthFirst,IterativeDepthFirst,BreathFirst,Greed,AStar
-    	//Scanner input2= new Scanner(System.in);
-    	//System.out.println("pleas input the game level: ");
-    	//String level= input2.next();//easy,normal,hard
+
     	int maxiter = Integer.parseInt(input.next());//change iteration
     	System.out.println("please input the time limit (second) : ");
     	
@@ -65,10 +61,10 @@ public class Test2 {
 	
 	public static void printAverageTable(){
 		
-		long[] step=new long[4];
-		long[] node=new long[4];
-		long[] time=new long[4];
-		int[] numTrue=new int[4];
+		double [] step=new double[4];
+		double[] node=new double[4];
+		double[] time=new double[4];
+		double[] numTrue=new double[4];
 		for(int i=0;i<res.length/4;i++){
 			for(int j=0;j<4;j++){
 				if(res[j+4*i].success==true){
@@ -89,11 +85,11 @@ public class Test2 {
 		}
 		System.out.println("average	"+"DepthFirst	"+"BreathFirst	"+"AStar	"+"Greedy	");
 		System.out.println("---------------------------------------------------------");
-		System.out.println("step	"+step[0]+"		"+step[1]+"		"+step[2]+"	"+step[3]+"		");
-		System.out.println("node	"+node[0]+"		"+node[1]+"		"+node[2]+"	"+node[3]+"		");
-		System.out.println("time	"+time[0]+"		"+time[1]+"		"+time[2]+"	"+time[3]+"		");
+		System.out.println("step	"+String.format("%.1f", step[0])+"		"+String.format("%.1f", step[1])+"		"+String.format("%.1f", step[2])+"	"+String.format("%.1f", step[3])+"		");
+		System.out.println("node	"+String.format("%.1f", node[0])+"		"+String.format("%.1f", node[1])+"		"+String.format("%.1f", node[2])+"	"+String.format("%.1f", node[3])+"		");
+		System.out.println("time	"+String.format("%.1f", time[0])+"		"+String.format("%.1f", time[1])+"		"+String.format("%.1f", time[2])+"	"+String.format("%.1f", time[3])+"		");
 		//System.out.println("sucess	"+res[0+4*i].success+"		"+res[1+4*i].success+"		"+res[2+4*i].success+"	"+res[3+4*i].success+"		");
 	}
-
+	//String.format("%.2f", i2)
 
 }

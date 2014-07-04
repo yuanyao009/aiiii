@@ -31,12 +31,12 @@ public class BreathFirst extends Method {
                     res.steps=temp.ShowProcess();//show the process
                     //System.out.println("last state");
                     //temp.show();
-                System.out.println("gameover");
-                System.out.println("Nodes Explored :" + this.gridPassed.size());
+                //System.out.println("gameover");
+                //System.out.println("Nodes Explored :" + this.gridPassed.size());
                 long total_time = System.currentTimeMillis() - start_time;
-                System.out.println("Time Spent :" + total_time + " ms"); 
-                System.out.println("Start position is  :" + start.start_x+", "+start.start_y); 
-                System.out.println("Goal's position is  :" + start.goal_x+", "+start.goal_y); 
+                //System.out.println("Time Spent :" + total_time + " ms"); 
+                //System.out.println("Start position is  :" + start.start_x+", "+start.start_y); 
+                //System.out.println("Goal's position is  :" + start.goal_x+", "+start.goal_y); 
                 res.success = true;
                 res.nodes = this.gridPassed.size();
                 res.time = total_time;
@@ -48,8 +48,8 @@ public class BreathFirst extends Method {
         
         System.out.println("EMPTY QUEUE");
         long total_time = System.currentTimeMillis() - start_time;
-        System.out.println("Time Spent :" + total_time + " ms");
-        System.out.println("Nodes Explored :" + this.gridPassed.size());
+        //System.out.println("Time Spent :" + total_time + " ms");
+        //System.out.println("Nodes Explored :" + this.gridPassed.size());
         //System.out.println("Nodes Explored- :" + this.explored_nodes);
         if (success(temp.grid)) {
                 temp.ShowProcess();

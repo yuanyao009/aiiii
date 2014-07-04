@@ -37,7 +37,7 @@ public class Greedy extends Method {
             if (success(temp.grid)) {
             	res.steps=temp.ShowProcess();
                     //start_map.show();
-                    temp.show();
+                    //temp.show();
                 System.out.println("Game Over --Solution FOUND");
 
                 //System.out.println("Nodes Explored :" + this.gridPassed.size());
@@ -60,7 +60,7 @@ public class Greedy extends Method {
         //System.out.println("Nodes Explored- :" + this.explored_nodes);
 
         if (success(temp.grid)) {
-                temp.ShowProcess();
+                //temp.ShowProcess();
             System.out.println("Game Over --Solution FOUND");
         } else {
             System.out.println("Game Over --Solution NOT found");

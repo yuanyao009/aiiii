@@ -17,7 +17,6 @@ public class DepthFirst extends Method {
     public Result perform() {
     	Result res = new Result();
     	res.method = "DepthFirst";
-
         System.out.println("Starting the DFS");
         long start_time = System.currentTimeMillis();
 /*
