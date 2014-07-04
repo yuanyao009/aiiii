@@ -2,14 +2,14 @@
 public class Heuristic {
 	public Grid gridClass;
 	public char[][] grid;
-	
-	public Heuristic(Grid grid){
+	/*
+	public Heuristic(Grid grid,){
 		gridClass=grid;
 		this.grid=grid.grid;
-		
 	}
+	**/
 
-    public int[] getMousePosition() {
+    public int[] getMousePosition(char[][] grid) {
         int[] mouseP = new int[2];
         for (int i = 0; i < grid.length; i++) {
         	for(int j=0;j<grid[0].length;j++){
@@ -21,12 +21,11 @@ public class Heuristic {
         return mouseP;
     }
     
-    public double distance() {
-    	int[] mouseP=getMousePosition();
+    public double distance(char[][] grid) {
+    	int[] mouseP=getMousePosition(grid);
     	double distance=(mouseP[0]-gridClass.goal[0])*(mouseP[0]-gridClass.goal[0])+(mouseP[1]-gridClass.goal[1])*(mouseP[1]-gridClass.goal[1]);
     	return distance;
-    }
-    
+    }  
     /*
     * returns the horizontal position of the whole mouse (2 blocks)
     */
@@ -43,5 +42,9 @@ public class Heuristic {
         return numBlocking;
     }
     **/
+    public int score(char[][] board) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
     
 }

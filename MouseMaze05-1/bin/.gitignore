@@ -9,3 +9,8 @@
 /IterativeDepthFirst.class
 /Method.class
 /Test.class
+/DepthLimit.class
+/BlockingTilesHeuristic.class
+/ComparatorAStar.class
+/Comparator.class
+/ComparatorGreedy.class

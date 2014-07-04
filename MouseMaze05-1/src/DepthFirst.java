@@ -13,11 +13,12 @@ public class DepthFirst extends Method {
     public void perform() {
         System.out.println("Starting the DFS");
         long start_time = System.currentTimeMillis();
-
+/*
         if (stack.size() == 0) {
             System.out.println("Cant start with no Board");
             return;
         }
+        **/
         Grid temp = stack.pop();
         temp.lastGrid = null;
         possibleMoves(temp);//add to stack

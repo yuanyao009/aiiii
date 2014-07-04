@@ -6,8 +6,8 @@ import java.util.*;
 public class Grid {
     public char[][] grid;
     public Grid lastGrid;
-    //public int cost; //cost to be used in the hurstic fucntion
-    public double heuristic;
+    public int cost; //cost to be used in the hurstic fucntion
+    public int heuristic;
     public long time = System.currentTimeMillis();
     public int dimension=6;
     public int[] goal=new int[2];

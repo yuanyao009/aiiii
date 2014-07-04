@@ -8,22 +8,15 @@ public class AStar extends Method {
     PriorityQueue<Grid> queue;
     double heuristic;
     
-    public AStar(Grid start) {
-    	
-        this.heuristic = new Heuristic(start).distance();
-        Comparator<Grid> comparator = new Comparator1();
+    public AStar(Grid start,int heuristic) { 	
+        this.heuristic = heuristic;
+        Comparator <Grid> comparator = new ComparatorAStar();
         queue = new PriorityQueue<Grid>(1, comparator);
         queue.add(start);
     }
     public void perform() {
         System.out.println("Astar method");
         long start_time = System.currentTimeMillis();
-        /*
-        if (queue.size() == 0) {
-            System.out.println("There is no grid!!!");
-            return;
-        }
-        **/
         Grid temp = queue.remove();
         temp.lastGrid = null;
         possibleMoves(temp);
@@ -55,11 +48,9 @@ public class AStar extends Method {
     }
     public void addtoQueue(Grid grid) {
          //BlockingTilesHeuristic BlockingTilesHeuristic = new BlockingTilesHeuristic();
-    	 Heuristic heu=new Heuristic(grid);
-         grid.heuristic = heu.distance();
-         //board.cost = board.lastGrid.cost + board.heuristic;
-         System.out.println("heu is" + grid.heuristic);
-        // this.explored_nodes++;
-         this.queue.add(grid);
+    	BlockingTilesHeuristic BlockingTilesHeuristic = new BlockingTilesHeuristic();
+    	grid.heuristic = BlockingTilesHeuristic.score(grid.grid);
+    	grid.cost = grid.lastGrid.cost + grid.heuristic;
+    	this.queue.add(grid);
     }
 }

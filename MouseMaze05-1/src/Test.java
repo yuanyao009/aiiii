@@ -11,7 +11,7 @@ public class Test {
     	//System.out.println("pleas input the game level: ");
     	//String level= input2.next();//easy,normal,hard
     	String level="normal";
-    	String method="AStar";//DepthFirst,IterativeDepthFirst,BreathFirst,Greed,AStar
+    	String method="AStar";//DepthFirst,BreathFirst,Greedy,AStar
     	
     	Grid grid=new Grid(level);
     	
@@ -26,9 +26,9 @@ public class Test {
     		DepthFirst method2 = new DepthFirst(grid);
             method2.perform();
         }
-    	else if (method.equalsIgnoreCase("IterativeDepthFirst")) {
+    	else if (method.equalsIgnoreCase("DepthLimit")) {
     	  	grid.show();
-    		IterativeDepthFirst method2 = new IterativeDepthFirst(grid);
+    		DepthLimit method2 = new DepthLimit(grid);
             method2.perform();
         }
         else if (method.equalsIgnoreCase("BreathFirst")) {
@@ -45,8 +45,8 @@ public class Test {
         }
         else if (method.equalsIgnoreCase("AStar")) {  	
         	grid.show();
-            int heuristic = Character.getNumericValue(method.charAt(1));  
-            AStar method2 = new AStar(grid);
+            int heuristic = Character.getNumericValue("Greedy".charAt(1));  
+            AStar method2 = new AStar(grid,heuristic);
             method2.perform();
         }
         else{System.out.println("The wrong input");}

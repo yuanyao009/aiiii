@@ -10,7 +10,7 @@ public class Greedy extends Method {
 
     public Greedy(Grid start, int heuristic) {
         this.heuristic = heuristic;
-        Comparator<Grid> comparator = new Comparator1();
+        Comparator<Grid> comparator = new ComparatorGreedy();
         queue = new PriorityQueue<>(1, comparator);
         queue.add(start);
     }
@@ -57,11 +57,14 @@ public class Greedy extends Method {
         }
     }
     public void addtoQueue(Grid grid) {
+    	 BlockingTilesHeuristic BlockingTilesHeuristic = new BlockingTilesHeuristic();
+    	 grid.heuristic = BlockingTilesHeuristic.score(grid.grid);
+         
     	 //BlockingTilesHeuristic BlockingTilesHeuristic = new BlockingTilesHeuristic();
-   	 	Heuristic heu=new Heuristic(grid);
-        grid.heuristic = heu.distance();
+   	 	//Heuristic heu=new Heuristic(grid);
+        //grid.heuristic = heu.distance();
         //board.cost = board.lastGrid.cost + board.heuristic;
-        System.out.println("heu is" + grid.heuristic);
+        //System.out.println("heu is" + grid.heuristic);
        // this.explored_nodes++;
         this.queue.add(grid);
     }
