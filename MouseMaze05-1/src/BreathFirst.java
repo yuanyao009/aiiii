@@ -10,7 +10,9 @@ public class BreathFirst extends Method {
         queue.add(start);
     }
     @Override
-    public void perform() {
+    public Result perform() {
+    	Result res = new Result();
+    	res.method = "BreadthFirst";
         long start_time = System.currentTimeMillis();
         System.out.println("Starting the BFS");
         Grid temp = queue.remove();
@@ -26,12 +28,16 @@ public class BreathFirst extends Method {
                 System.out.println("Nodes Explored :" + this.gridPassed.size());
                 //System.out.println("Nodes Explored- :" + this.explored_nodes);
                 long total_time = System.currentTimeMillis() - start_time;
-                System.out.println("Time Spent :" + total_time + " ms");
-                return;
+                System.out.println("Time Spent :" + total_time + " ms"); 
+                res.success = true;
+                res.nodes = this.gridPassed.size();
+                res.time = total_time;
+                return res;
             }
             temp = queue.remove();
             possibleMoves(temp);
         }
+        
         System.out.println("EMPTY QUEUE");
         long total_time = System.currentTimeMillis() - start_time;
         System.out.println("Time Spent :" + total_time + " ms");
@@ -43,6 +49,7 @@ public class BreathFirst extends Method {
         } else {
             System.out.println("Game Over --Solution NOT found");
         }
+        return res;
     }
     @Override
     public void addtoQueue(Grid board) {

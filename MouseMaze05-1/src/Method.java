@@ -13,8 +13,9 @@ public class Method{
     public void cleargridPassed() {
         this.gridPassed = new LinkedList<Grid>();
     }
-    public void perform() {
+    public Result perform() {
         //throw new UnsupportedOperationException("Not supported yet.");
+    	return new Result();
     }
     public void addtoQueue(Grid board) {
         //throw new UnsupportedOperationException("Not supported yet.");

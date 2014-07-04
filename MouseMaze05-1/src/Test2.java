@@ -1,10 +1,30 @@
-import java.util.Scanner;
-/**
- * Test the efficiency of different methods to reach the final goal
- */
-public class Test {
-    public static void main(String[] args) {
-    	//System.out.println("please input the name of method : ");
+
+public class Test2 {
+	public static Result[] res;
+	
+	public static void main(String[] args) {
+    	int maxiter = 1;
+		res = new Result[maxiter];
+    	for (int i=0; i<maxiter; i++){
+    		Grid grid = new Grid("random");
+    		BreathFirst method = new BreathFirst(grid);
+    		res[i] = method.perform();
+    	}
+    	
+		/*
+		Grid grid = new Grid("random");
+		BreathFirst method = new BreathFirst(grid);
+		method.perform();
+		*/
+		
+		for (int i=0; i<maxiter; i++){
+    		res[i].print();
+    	}
+    	
+		
+		
+		/*
+		//System.out.println("please input the name of method : ");
     	//Scanner input = new Scanner(System.in);
     	//String method= input.next();//DepthFirst,IterativeDepthFirst,BreathFirst,Greed,AStar
     	//Scanner input2= new Scanner(System.in);
@@ -50,5 +70,9 @@ public class Test {
             method2.perform();
         }
         else{System.out.println("The wrong input");}
-}
+
+		*/
+	}
+
+
 }
