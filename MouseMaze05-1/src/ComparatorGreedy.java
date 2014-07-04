@@ -1,6 +1,6 @@
 
 import java.util.Comparator;
-public class ComparatorGreedy implements Comparator {	
+public class ComparatorGreedy implements Comparator{	
 	//@Override
 	public int compare(Object o1, Object o2) {
 		Grid grid1=(Grid)o1;
