@@ -166,7 +166,7 @@ public class Method{
         }
     }
     public boolean success(char[][] board) {
-        if (board[5][5] == 'A') {
+        if (board[3][5] == 'A') {
         	System.out.println("25 is "+board[2][5]);
             return true;
         }

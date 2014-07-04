@@ -24,6 +24,7 @@ public class AStar extends Method {
             System.out.println("size : " + queue.size());
             if (success(temp.grid)) {
                     temp.ShowProcess();
+                    temp.show();
                 System.out.println("Game Over --Solution FOUND");
                 System.out.println("Nodes Explored :" + this.gridPassed.size());
                 //System.out.println("Nodes Explored- :" + this.explored_nodes);
