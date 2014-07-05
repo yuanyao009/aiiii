@@ -4,7 +4,6 @@ import java.util.Comparator;
 */
 
 public class ComparatorAStar implements Comparator {	
-	@Override
 	public int compare(Object object1, Object object2) {
 		Grid grid1=(Grid)object1;
 		Grid grid2=(Grid)object2;
